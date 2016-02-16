@@ -21,12 +21,7 @@ class Centaur
   end
 
   def shoot
-    @options[COUNT] += 1
-    if @options[COUNT] >= 3 || laying?
-      "NO!"
-    else
-      "Twang!!!"
-    end
+    work "Twang!!!"
   end
 
   def run
