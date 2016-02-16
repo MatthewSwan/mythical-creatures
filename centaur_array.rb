@@ -28,15 +28,6 @@ class Centaur
     work "Clop clop clop clop!!!"
   end
 
-  def work(sound)
-    @options[COUNT] +=1
-    if @options[COUNT] >= 3 || laying?
-      "NO!"
-    else
-      sound
-    end
-  end
-
   def cranky?
     3 <= @options[COUNT]
   end
@@ -60,5 +51,16 @@ class Centaur
 
   def stand_up
     @options[STANDING] = true
+  end
+
+  private
+
+  def work(sound)
+    @options[COUNT] +=1
+    if @options[COUNT] >= 3 || laying?
+      "NO!"
+    else
+      sound
+    end
   end
 end
