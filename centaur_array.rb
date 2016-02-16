@@ -52,9 +52,7 @@ class Centaur
 
   def sleep
     @options[COUNT] = 0
-    if standing?
-      "NO!"
-    end
+    "NO!" if standing?
   end
 
   def lay_down
