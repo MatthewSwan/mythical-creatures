@@ -39,11 +39,7 @@ class Centaur
   end
 
   def cranky?
-    if @options[COUNT] < 3
-      false
-    else
-      true
-    end
+    3 <= @options[COUNT]
   end
 
   def standing?
