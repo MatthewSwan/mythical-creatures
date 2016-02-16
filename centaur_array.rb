@@ -57,7 +57,7 @@ class Centaur
 
   def work(sound)
     @options[COUNT] +=1
-    if @options[COUNT] >= 3 || laying?
+    if cranky? || laying?
       "NO!"
     else
       sound
