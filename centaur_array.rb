@@ -3,7 +3,6 @@ class Centaur
   BREED    = 1
   COUNT    = 2
   STANDING = 3
-  LAYING   = 4
 
   def initialize(name, breed)
     @options           = []
@@ -11,7 +10,6 @@ class Centaur
     @options[BREED   ] = breed
     @options[COUNT   ] = 0
     @options[STANDING] = true
-    @options[LAYING  ] = false
   end
 
   def name
@@ -24,7 +22,7 @@ class Centaur
 
   def shoot
     @options[COUNT] += 1
-    if @options[COUNT] >= 3 || @options[LAYING]
+    if @options[COUNT] >= 3 || !@options[STANDING]
       "NO!"
     else
       "Twang!!!"
@@ -33,7 +31,7 @@ class Centaur
 
   def run
     @options[COUNT] +=1
-    if @options[COUNT] >= 3 || @options[LAYING]
+    if @options[COUNT] >= 3 || !@options[STANDING]
       "NO!"
     else
       "Clop clop clop clop!!!"
@@ -61,15 +59,13 @@ class Centaur
 
   def lay_down
     @options[STANDING] = false
-    @options[LAYING]   = true
   end
 
   def laying?
-    @options[LAYING]
+    !@options[STANDING]
   end
 
   def stand_up
     @options[STANDING] = true
-    @options[LAYING]   = false
   end
 end
