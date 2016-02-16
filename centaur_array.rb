@@ -22,7 +22,7 @@ class Centaur
 
   def shoot
     @options[COUNT] += 1
-    if @options[COUNT] >= 3 || !@options[STANDING]
+    if @options[COUNT] >= 3 || laying?
       "NO!"
     else
       "Twang!!!"
@@ -31,7 +31,7 @@ class Centaur
 
   def run
     @options[COUNT] +=1
-    if @options[COUNT] >= 3 || !@options[STANDING]
+    if @options[COUNT] >= 3 || laying?
       "NO!"
     else
       "Clop clop clop clop!!!"
@@ -52,7 +52,7 @@ class Centaur
 
   def sleep
     @options[COUNT] = 0
-    if @options[STANDING]
+    if standing?
       "NO!"
     end
   end
@@ -62,7 +62,7 @@ class Centaur
   end
 
   def laying?
-    !@options[STANDING]
+    !standing?
   end
 
   def stand_up
