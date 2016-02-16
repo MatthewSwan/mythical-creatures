@@ -1,19 +1,30 @@
 class Centaur
+  NAME     = 0
+  BREED    = 1
+  COUNT    = 2
+  STANDING = 3
+  LAYING   = 4
+
   def initialize(name, breed)
-    @options = [name, breed, 0, true, false]
+    @options           = []
+    @options[NAME    ] = name
+    @options[BREED   ] = breed
+    @options[COUNT   ] = 0
+    @options[STANDING] = true
+    @options[LAYING  ] = false
   end
 
   def name
-    @options[0]
+    @options[NAME]
   end
 
   def breed
-    @options[1]
+    @options[BREED]
   end
 
   def shoot
-    @options[2] += 1
-    if @options[2] >= 3 || @options[4]
+    @options[COUNT] += 1
+    if @options[COUNT] >= 3 || @options[LAYING]
       "NO!"
     else
       "Twang!!!"
@@ -21,8 +32,8 @@ class Centaur
   end
 
   def run
-    @options[2] +=1
-    if @options[2] >= 3 || @options[4]
+    @options[COUNT] +=1
+    if @options[COUNT] >= 3 || @options[LAYING]
       "NO!"
     else
       "Clop clop clop clop!!!"
@@ -30,7 +41,7 @@ class Centaur
   end
 
   def cranky?
-    if @options[2] < 3
+    if @options[COUNT] < 3
       false
     else
       true
@@ -38,27 +49,27 @@ class Centaur
   end
 
   def standing?
-    @options[3]
+    @options[STANDING]
   end
 
   def sleep
-    @options[2] = 0
-    if @options[3]
+    @options[COUNT] = 0
+    if @options[STANDING]
       "NO!"
     end
   end
 
   def lay_down
-    @options[3] = false
-    @options[4] = true
+    @options[STANDING] = false
+    @options[LAYING]   = true
   end
 
   def laying?
-    @options[4]
+    @options[LAYING]
   end
 
   def stand_up
-    @options[3] = true
-    @options[4] = false
+    @options[STANDING] = true
+    @options[LAYING]   = false
   end
 end
