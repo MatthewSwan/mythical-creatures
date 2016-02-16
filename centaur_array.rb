@@ -30,11 +30,15 @@ class Centaur
   end
 
   def run
+    work "Clop clop clop clop!!!"
+  end
+
+  def work(sound)
     @options[COUNT] +=1
     if @options[COUNT] >= 3 || laying?
       "NO!"
     else
-      "Clop clop clop clop!!!"
+      sound
     end
   end
 
