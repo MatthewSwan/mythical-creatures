@@ -1,8 +1,9 @@
 class Werewolf
-  def initialize(name, location = "London", form = 'human')
+  def initialize(name, location = "London")
     @name = name
     @location = location
-    @form = form
+    @human = true
+    @wolf = false
   end
 
   def name
@@ -14,19 +15,20 @@ class Werewolf
   end
 
   def human?
-    @form = 'human'
+    @human
   end
 
   def change!
-    if @form == 'human'
-      @form = 'werewolf'
+    if  @human == false
+      @wolf = false
+      @human = true
     else
-      @form = 'human'
+      @human = false
+      @wolf = true
     end
   end
 
-
   def wolf?
-    @form = 'werewolf'
+   @wolf
   end
 end

@@ -40,7 +40,6 @@ class WerewolfTest < Minitest::Test
   end
 
   def test_when_starting_as_a_werewolf_changing_a_second_time_it_becomes_werewolf_again
-    skip
     werewolf = Werewolf.new("David","London")
     werewolf.change!
     assert werewolf.wolf?
