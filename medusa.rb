@@ -13,9 +13,9 @@ class Medusa
   end
 
   def stare(victim)
-    @statues << victim
-    if @statues.count > 3
-      @statues.shift.unstoned?
+    statues << victim
+    if statues.count > 3
+      statues.shift.get_unstoned!
     end
     victim.get_stoned!
   end
@@ -38,9 +38,15 @@ class Person
 
   def get_stoned!
     @stoned = true
+    @unstoned = false
   end
 
   def unstoned?
     @unstoned
+  end
+
+  def get_unstoned!
+    @stoned = false
+    @unstoned = true
   end
 end
